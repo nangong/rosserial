@@ -347,6 +347,7 @@ class SerialClient:
                 self.port = Serial(port, baud, timeout=self.timeout*0.5)
             except SerialException as e:
                 rospy.logerr("Error opening serial: %s", e)
+		time.sleep(1)
                 rospy.signal_shutdown("Error opening serial: %s" % e)
                 raise SystemExit
 
